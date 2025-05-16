@@ -1,3 +1,5 @@
+// endpoint global
+const url = "https://jsonplaceholder.typicode.com/users";
 // Write a function using arrow syntax that filters even numbers from an array.
 let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 const Sepreator = numbers.filter((x) => {
@@ -74,3 +76,95 @@ button.addEventListener("click", () => {
 });
 
 //Write a program that shows a live character count for a textarea.
+const textareaEnv = document.addEventListener("input", countValue);
+const valueCounted = document.getElementById("count");
+function countValue(e) {
+  const result = e.target.value;
+  valueCounted.innerHTML = result.length;
+}
+// Build a simple counter with increment and decrement buttons.
+increase;
+numbers;
+decrease;
+const increaseButton = document.getElementById("increase");
+const number = document.getElementById("numbers");
+const decreaseButton = document.getElementById("decrease");
+
+function changeEvent() {
+  increaseButton.addEventListener("click", () => {
+    number.innerHTML++;
+  });
+  decreaseButton.addEventListener("click", () => {
+    number.innerHTML--;
+  });
+}
+changeEvent();
+
+// Display an alert when a user clicks a specific element.
+const showALert = document.getElementById("bodyAlert");
+showALert.addEventListener("click", () => {
+  alert("you clicked on body");
+});
+// Fetch data from a public API using fetch() and display it.
+// endpoint https://jsonplaceholder.typicode.com/users
+function fetchUser() {
+  console.log("simple usage of fetch");
+  fetch(url)
+    .then((request) => request.json())
+    .then((response) => console.table(response));
+}
+fetchUser();
+// Write a function that returns a Promise and resolves after 3 seconds.
+const promises = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    console.log("fetch by promise");
+    resolve(fetch(url));
+  }, 3000);
+});
+
+promises
+  .then((request) => request.json())
+  .then((response) => console.table(response))
+  .finally(console.log("resolved"))
+  .catch((error) => console.error(error));
+// Use async/await to call an API and log the response.
+
+const fetchApi = async () => {
+  await fetch(url)
+    .then((request) => request.json())
+    .then((response) => console.log("response:", response))
+    .catch((error) => console.log(error));
+};
+fetchApi();
+
+// Handle errors using try...catch in an async function.
+
+const HandleError = async () => {
+  try {
+    await fetch(url)
+      .then((request) => request.json())
+      .then((response) => console.log("try catch: ", response));
+  } catch (error) {
+    console.log("🚀 ~ HandleError ~ error:", error);
+  }
+};
+
+HandleError();
+
+// Write a function that chains multiple .then() calls.
+
+const multipleChainThen = async () => {
+  try {
+    await fetch(url)
+      .then((request) => {
+        !request
+          ? alert("Error Accureed while sending requests")
+          : request.json;
+      })
+      .then((response) => console.log("multi:", response))
+      .catch((error) => console.log("eorror: ", error));
+  } catch (error) {
+    console.log("🚀 ~ multipleChainThen ~ error:", error);
+  }
+};
+multipleChainThen();
