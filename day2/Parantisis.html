@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Parentheses Stack Animation</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+
+    #inputString {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .stack {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      border: 2px solid #333;
+      width: 80px;
+      height: 200px;
+      margin: 0 auto;
+      padding: 10px;
+    }
+
+    .item {
+      width: 50px;
+      height: 30px;
+      margin: 2px;
+      background-color: lightgreen;
+      border: 1px solid green;
+      line-height: 30px;
+      font-weight: bold;
+    }
+
+    .log {
+      margin-top: 20px;
+      min-height: 30px;
+      font-size: 18px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Balanced Parentheses Animation</h2>
+
+<div id="inputString">(()())</div>
+<div class="stack" id="stack"></div>
+<div class="log" id="log">Press Start to Begin</div>
+<button onclick="startAnimation()">Start</button>
+
+<script>
+  const str = "(()())";
+  const stack = [];
+  const stackDiv = document.getElementById('stack');
+  const log = document.getElementById('log');
+
+  function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  async function startAnimation() {
+    stack.length = 0;
+    stackDiv.innerHTML = "";
+    log.textContent = "";
+    
+    for (let i = 0; i < str.length; i++) {
+      const char = str[i];
+      log.textContent = `Reading character: "${char}"`;
+
+      if (char === '(') {
+        stack.push('(');
+        const item = document.createElement('div');
+        item.className = 'item';
+        item.textContent = '(';
+        item.id = `item-${stack.length}`;
+        stackDiv.appendChild(item);
+        await sleep(800);
+      } else if (char === ')') {
+        if (stack.length === 0) {
+          log.textContent = '❌ Unmatched closing parenthesis!';
+          return;
+        }
+        stack.pop();
+        const lastItem = stackDiv.lastChild;
+        if (lastItem) {
+          lastItem.remove();
+        }
+        await sleep(800);
+      }
+    }
+
+    if (stack.length === 0) {
+      log.textContent = '✅ All parentheses are balanced!';
+    } else {
+      log.textContent = '❌ Unmatched opening parentheses left!';
+    }
+  }
+</script>
+
+</body>
+</html>
