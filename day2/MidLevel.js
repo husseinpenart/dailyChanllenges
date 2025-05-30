@@ -102,9 +102,9 @@ changeEvent();
 
 // Display an alert when a user clicks a specific element.
 const showALert = document.getElementById("bodyAlert");
-showALert.addEventListener("click", () => {
-  alert("you clicked on body");
-});
+// showALert.addEventListener("click", () => {
+//   alert("you clicked on body");
+// });
 // Fetch data from a public API using fetch() and display it.
 // endpoint https://jsonplaceholder.typicode.com/users
 function fetchUser() {

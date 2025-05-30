@@ -1,4 +1,19 @@
-console.log("branch dev");
+// Write a debounce function from scratch.
+function handler() {
+  console.log("submit happended");
+}
+document
+  .getElementById("submitid")
+  .addEventListener("click", debounce(handler, 500));
 
-console.warn("need to merge with main ");
-console.warn("need to merge with dev ");
+function debounce(f, ms) {
+  let timeout;
+  return function () {
+    if (timeout) {
+      clearTimeout();
+    }
+    setTimeout(() => {
+      f();
+    }, ms);
+  };
+}
