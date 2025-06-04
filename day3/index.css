@@ -5,14 +5,92 @@
 }
 
 .box {
-  font-size: 28px !important;
-  display: grid;
-  justify-content: center;
+  margin: auto;
+  width: 380px;
+  height: 380px;
+  display: flex;
   align-items: center;
-  align-self: 20px;
+  justify-content: center;
+  font-family: "Inconsolata", monospace;
+  font-size: 28px;
+  border: 1px solid #c39f76;
+  box-sizing: border-box;
+  margin-top: 10%;
 }
-.box::before {
+
+/* TODO::for usingn and seeing what is going on just uncomment the box before classes */
+/* .box::before {
   content: "Css Challege";
   text-shadow: -60px -130px, 60px -80px, 0px -50px, -60px -30px, 5px 13px,
     40px -70px, 30px 80px, -20px 50px, 50px 83px, -10px 130px;
+} */
+/* .box::before{
+    content: "hello css";
+    text-transform: capitalize;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    color: white;
+     
+} */
+/* .box::before {
+  content: "hello world";
+  text-transform: capitalize;
+  -webkit-mask: linear-gradient(90deg, #000, #0002);
+} */
+/* .box:after {
+  content: "Hello World";
+}
+
+.box:before {
+  position: absolute;
+  content: "    o    l ";
+  color: #c39f76;
+} */
+/* .box::before{
+    content: "CSS ";
+}
+.box::after{
+    content: "CPP ";
+    margin-bottom: 10px;
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+} */
+/* 
+.box::after {
+  content: "Mein  Name ist Hussain ";
+  clip-path: inset(0 0 19px 0);
+  margin-top: -3px;
+}
+.box::before {
+  position: absolute;
+  content: "Mein  Name ist Hussain ";
+  clip-path: inset(15px 0 0 0);
+
+} */
+.box {
+  display: block;
+  padding: 133px 0 0 64px;
+}
+.box::before
+ {
+  content: "He\a             l";
+  font-size: 70%;
+  line-height: 0;
+  white-space: pre;
+}
+.box::after {
+  display: inline-block;
+  content: "l  o";
+  transform: translate(2Q, 3Q) scale(0.65);
+  padding: 14Q 0;
+  background: radial-gradient(4Q at 81%66%, #0000 30%, #000 45% 70%, #0000 85%);
+}
+.box::first-letter {
+  font-size: 100px;
+  margin: 12px;
+}
+.box::first-line {
+  font-size: 3em;
 }
