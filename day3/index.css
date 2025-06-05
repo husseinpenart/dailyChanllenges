@@ -5,6 +5,7 @@
 }
 
 .box {
+  overflow: hidden;
   margin: auto;
   width: 380px;
   height: 380px;
@@ -15,9 +16,30 @@
   font-size: 28px;
   border: 1px solid #c39f76;
   box-sizing: border-box;
-  margin-top: 10%;
-}
 
+  resize: horizontal;
+  border-image: linear-gradient(to right, blue, red, orange) 1 1 1 1;
+  border-width: 3px;
+}
+:root {
+  counter-reset: heading;
+}
+h2 {
+  counter-increment: heading;
+}
+h2::before {
+  content: counter(heading);
+  background-color: blue;
+  color: white;
+  padding: 0.15em 0;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  width: 40px;
+  text-align: center;
+}
 /* TODO::for usingn and seeing what is going on just uncomment the box before classes */
 /* .box::before {
   content: "Css Challege";
@@ -69,7 +91,7 @@
   clip-path: inset(15px 0 0 0);
 
 } */
-.box {
+/* .box {
   display: block;
   padding: 133px 0 0 64px;
 }
@@ -93,4 +115,68 @@
 }
 .box::first-line {
   font-size: 3em;
+} */
+/* .box::before {
+  content: "Hello";
+  background: #fff;
+  color: black;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+.box::after {
+  content: "World";
+  background: #000;
+  color: white;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+} */
+/* 
+.box {
+  overflow: hidden;
+}
+.box::before {
+  content: "Hello World";
+  animation: 5s infinite;
+  animation-duration: 4s;
+  animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  animation-name: hello;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+  -webkit-animation: hello 2s linear infinite;
+  text-indent: -24ch;
+  content: "Hello World";
+  text-shadow: 24ch 0, 12ch 0, -12ch 0, -24ch 0;
+}
+@keyframes hello {
+  to {
+    transform: translateX(12ch);
+  }
+} */
+.box::before {
+  content: "Hello CSS World";
+  font-family: "Times New Roman", Times, serif;
+  font-size: 3ch;
+  font-weight: bold;
+  background: linear-gradient(to right, red, blue);
+  background-clip: text;
+  color: transparent;
+}
+.layout-container{
+  width: min(1000px , 100%);
+  margin: 0 auto;
+  columns: 3 300px;
+  column-gap: 1em;
+
+}
+img{
+  display: block;
+  margin-bottom: 1em;
+  width: 100%;
+
 }
