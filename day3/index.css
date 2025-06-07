@@ -20,9 +20,11 @@
   resize: horizontal;
   border-image: linear-gradient(to right, blue, red, orange) 1 1 1 1;
   border-width: 3px;
+
 }
 :root {
   counter-reset: heading;
+  
 }
 h2 {
   counter-increment: heading;
@@ -178,5 +180,8 @@ img{
   display: block;
   margin-bottom: 1em;
   width: 100%;
+   mask: 
+    radial-gradient(30px at 75% 100%,#0000 98%,#000) 50% calc(100% - 30px)/120px 100% repeat-x,
+    radial-gradient(30px at 25% 50%,#000 99%,#0000 101%) bottom/120px 60px repeat-x
 
 }

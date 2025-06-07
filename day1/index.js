@@ -16,3 +16,6 @@ login.addEventListener("click", () => {
   hideLogin.style.display = "block";
   hideSignup.style.display = "none";
 });
+
+const num = 150000000;
+console.log(num.toLocaleString("fa"));
